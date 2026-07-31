@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies · Buddy Everyday Pet Care</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background: #fcf9f5;
+            color: #2d2a24;
+            line-height: 1.7;
+        }
+
+        /* ----- navigation (consistent) ----- */
+        .navbar {
+            background: #2d4a3b;
+            padding: 1rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f5e7d9;
+            letter-spacing: 1px;
+        }
+        .logo i {
+            color: #f9c58b;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.2rem 1rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: #f0ebe1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            transition: 0.25s;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links li a:hover {
+            background: #f9c58b;
+            color: #1f3328;
+            box-shadow: 0 4px 10px rgba(249, 197, 139, 0.4);
+        }
+
+        /* ----- main container ----- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 2rem 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 0.5rem 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #1f3328;
+            letter-spacing: -0.5px;
+        }
+
+        .page-header h1 i {
+            color: #f9c58b;
+            margin: 0 0.25rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #4d4a42;
+            max-width: 720px;
+            margin: 0.5rem auto 0;
+            border-bottom: 3px solid #e7dccc;
+            padding-bottom: 1rem;
+        }
+
+        /* cookies content rich */
+        .cookies-content {
+            background: #ffffffec;
+            padding: 2.8rem 3rem;
+            border-radius: 60px 20px 60px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ede5da;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .cookies-content h2 {
+            font-size: 2.2rem;
+            color: #1f3328;
+            margin: 2.8rem 0 0.8rem;
+            border-left: 12px solid #f9c58b;
+            padding-left: 1.4rem;
+        }
+
+        .cookies-content h2:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .cookies-content h3 {
+            font-size: 1.6rem;
+            color: #2d4a3b;
+            margin: 2rem 0 0.6rem;
+            font-weight: 600;
+        }
+
+        .cookies-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: #2f2b24;
+        }
+
+        .cookies-content ul,
+        .cookies-content ol {
+            margin: 1rem 0 1.8rem 2.2rem;
+        }
+
+        .cookies-content li {
+            margin-bottom: 0.7rem;
+            font-size: 1.05rem;
+        }
+
+        .cookies-content .highlight {
+            background: #fcf3e9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            color: #3d2e1e;
+        }
+
+        .cookies-content .card-note {
+            background: #f6efe7;
+            padding: 1.2rem 2rem;
+            border-radius: 40px 12px 40px 12px;
+            border-left: 8px solid #f9c58b;
+            margin: 1.8rem 0;
+            font-style: italic;
+        }
+
+        .cookies-content .card-note i {
+            color: #b47d56;
+            margin-right: 10px;
+        }
+
+        .cookies-content .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .cookies-content .cookie-table th {
+            background: #2d4a3b;
+            color: #f5e7d9;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .cookies-content .cookie-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #ede5da;
+        }
+
+        .cookies-content .cookie-table tr:nth-child(even) {
+            background: #faf6f0;
+        }
+
+        /* footer (identical) */
+        .footer {
+            background: #1f3328;
+            color: #ede3d6;
+            padding: 2.8rem 2rem 2rem;
+            margin-top: 2rem;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-address {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-address div i {
+            color: #f9c58b;
+            width: 1.8rem;
+            font-size: 1.4rem;
+        }
+
+        .footer-copy {
+            text-align: right;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            border-top: 1px solid #3f5a49;
+            padding-top: 1.8rem;
+            margin-top: 1.8rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-copy i {
+            color: #f9c58b;
+        }
+
+        /* ----- Cookie Consent Dialog Box (fixed at bottom) ----- */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1f3328;
+            color: #ede3d6;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cookie-consent.hidden {
+            transform: translateY(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cookie-consent p {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0;
+            flex: 1 1 300px;
+        }
+
+        .cookie-consent p i {
+            color: #f9c58b;
+            margin-right: 8px;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.6rem 1.8rem;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .cookie-btn.accept {
+            background: #f9c58b;
+            color: #1f3328;
+        }
+
+        .cookie-btn.accept:hover {
+            background: #f5b775;
+            transform: scale(1.03);
+        }
+
+        .cookie-btn.decline {
+            background: transparent;
+            color: #ede3d6;
+            border: 2px solid #5a7a66;
+        }
+
+        .cookie-btn.decline:hover {
+            background: #5a7a66;
+            color: #fcf9f5;
+        }
+
+        .cookie-btn.settings {
+            background: transparent;
+            color: #f9c58b;
+            border: 2px solid #f9c58b;
+        }
+
+        .cookie-btn.settings:hover {
+            background: #f9c58b;
+            color: #1f3328;
+        }
+
+        /* responsiveness */
+        @media (max-width: 750px) {
+            .navbar {
+                flex-direction: column;
+                gap: 0.6rem;
+                align-items: flex-start;
+            }
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+                gap: 0.2rem 0.5rem;
+            }
+            .nav-links li a {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .cookies-content {
+                padding: 1.8rem;
+            }
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-address {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .cookie-consent {
+                padding: 1rem 1.2rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-consent p {
+                flex: 1 1 auto;
+            }
+            .cookie-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            .cookies-content .cookie-table {
+                font-size: 0.8rem;
+            }
+            .cookies-content .cookie-table th,
+            .cookies-content .cookie-table td {
+                padding: 0.5rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation -->
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-paw"></i> Buddy</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-cookie-bite"></i> Cookie Policy <i class="fas fa-paw"></i></h1>
+            <p>How we use cookies to enhance your experience</p>
+        </div>
+
+        <div class="cookies-content">
+            <h2>🍪 What are cookies?</h2>
+            <p>Cookies are small text files that are placed on your device (computer, smartphone, tablet) when you visit a website. They are widely used to make websites work more efficiently, enhance user experience, and provide information to the website owners. Cookies help us remember your preferences, analyze how you interact with our site, and deliver personalized content.</p>
+            <p>At Buddy, we use cookies to improve your browsing experience, understand how you use our website, and tailor our content to your interests. This Cookie Policy explains what cookies we use, why we use them, and how you can manage your preferences.</p>
+
+            <div class="card-note"><i class="fas fa-info-circle"></i> By using our website, you consent to our use of cookies in accordance with this Cookie Policy. You can manage your cookie preferences at any time through the settings in your browser or by using the cookie consent dialog at the bottom of this page.</div>
+
+            <h2>📋 Types of cookies we use</h2>
+            <p>We use the following categories of cookies on our website:</p>
+
+            <h3>🔹 Essential Cookies</h3>
+            <p>These cookies are strictly necessary for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as they are essential for the operation of the site.</p>
+            <ul>
+                <li><strong>Session cookies:</strong> These allow you to navigate the site and use its features, such as logging into your account.</li>
+                <li><strong>Security cookies:</strong> These help us detect and prevent fraudulent activity and protect your data.</li>
+                <li><strong>Load balancing cookies:</strong> These distribute traffic across servers to ensure optimal performance.</li>
+            </ul>
+
+            <h3>🔹 Performance & Analytics Cookies</h3>
+            <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use this data to improve our site, fix issues, and create better content for our users.</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> We use Google Analytics to track page views, user behavior, and traffic sources. This helps us understand which content is most popular and how users navigate our site.</li>
+                <li><strong>Heat mapping tools:</strong> We may use tools to understand where users click and scroll, helping us improve page layout and design.</li>
+            </ul>
+
+            <h3>🔹 Functional Cookies</h3>
+            <p>These cookies allow the website to remember choices you make (such as your preferred language, region, or font size) and provide enhanced, more personal features. They may also be used to remember changes you've made to text size, fonts, and other parts of web pages that you can customize.</p>
+            <ul>
+                <li><strong>Preference cookies:</strong> Remember your settings and preferences for future visits.</li>
+                <li><strong>User interface customization:</strong> Remember your preferred layout or display options.</li>
+            </ul>
+
+            <h3>🔹 Targeting & Advertising Cookies</h3>
+            <p>These cookies are used to deliver content that is more relevant to you and your interests. They may be used to deliver targeted advertising or to limit the number of times you see an advertisement. They also help us measure the effectiveness of our marketing campaigns.</p>
+            <ul>
+                <li><strong>Social media cookies:</strong> Allow you to share content on social media platforms.</li>
+                <li><strong>Retargeting cookies:</strong> Show you relevant ads on other websites based on your browsing behavior.</li>
+            </ul>
+            <p>We do not sell your personal information to third parties for advertising purposes without your explicit consent. Any third-party cookies are subject to the privacy policies of those third parties.</p>
+
+            <h2>📊 Detailed cookie list</h2>
+            <p>Below is a detailed list of cookies we may use on our website. Please note that this list may change as we update our services and technologies.</p>
+
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Cookie Name</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>Google Analytics - distinguishes unique users</td>
+                        <td>2 years</td>
+                        <td>Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>Google Analytics - distinguishes users</td>
+                        <td>24 hours</td>
+                        <td>Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>_gat</td>
+                        <td>Google Analytics - throttles request rate</td>
+                        <td>1 minute</td>
+                        <td>Analytics</td>
+                    </tr>
+                    <tr>
+                        <td>session_id</td>
+                        <td>Maintains user session state</td>
+                        <td>Session</td>
+                        <td>Essential</td>
+                    </tr>
+                    <tr>
+                        <td>cookie_preferences</td>
+                        <td>Stores your cookie consent preferences</td>
+                        <td>1 year</td>
+                        <td>Functional</td>
+                    </tr>
+                    <tr>
+                        <td>user_preferences</td>
+                        <td>Remembers user settings and preferences</td>
+                        <td>6 months</td>
+                        <td>Functional</td>
+                    </tr>
+                    <tr>
+                        <td>theme_preference</td>
+                        <td>Stores your preferred display theme</td>
+                        <td>1 year</td>
+                        <td>Functional</td>
+                    </tr>
+                    <tr>
+                        <td>fb_pixel</td>
+                        <td>Facebook advertising and retargeting</td>
+                        <td>2 years</td>
+                        <td>Targeting</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>🛠️ How to manage your cookie preferences</h2>
+            <p>You can manage your cookie preferences in several ways:</p>
+            <ol>
+                <li><strong>Browser settings:</strong> Most web browsers allow you to control cookies through their settings. You can set your browser to block all cookies, accept only certain cookies, or alert you when cookies are being sent. Please note that blocking essential cookies may affect the functionality of our website.</li>
+                <li><strong>Cookie consent dialog:</strong> At the bottom of this page, you will find a cookie consent dialog that allows you to accept or decline non-essential cookies. Your choice will be stored for future visits.</li>
+                <li><strong>Third-party opt-out tools:</strong> You can opt out of third-party analytics and advertising cookies using tools such as the Network Advertising Initiative's opt-out page or the Digital Advertising Alliance's Consumer Choice page.</li>
+            </ol>
+            <p>For more information about managing cookies in your browser, please visit the help section of your browser or refer to the following links:</p>
+            <ul>
+                <li><a href="#" style="color:#b47d56;">Google Chrome</a></li>
+                <li><a href="#" style="color:#b47d56;">Mozilla Firefox</a></li>
+                <li><a href="#" style="color:#b47d56;">Apple Safari</a></li>
+                <li><a href="#" style="color:#b47d56;">Microsoft Edge</a></li>
+            </ul>
+
+            <h2>📈 How we use cookie data</h2>
+            <p>We use the data collected through cookies to:</p>
+            <ul>
+                <li><strong>Improve user experience:</strong> By remembering your preferences and settings, we can provide a more personalized experience.</li>
+                <li><strong>Analyze website performance:</strong> We track how users interact with our site to identify areas for improvement and optimize content.</li>
+                <li><strong>Enhance security:</strong> Cookies help us detect and prevent fraudulent activity, ensuring the safety of your data.</li>
+                <li><strong>Tailor content:</strong> We use analytics data to understand which topics and resources are most valuable to our users, allowing us to create better content.</li>
+                <li><strong>Measure marketing effectiveness:</strong> We track the performance of our marketing campaigns to ensure we are reaching the right audience effectively.</li>
+            </ul>
+            <p>All data collected through cookies is handled in accordance with our <a href="privacy.html" style="color:#b47d56;">Privacy Policy</a>. We do not share your personal information with third parties without your explicit consent, except as required for the operation of our site or as otherwise disclosed in our Privacy Policy.</p>
+
+            <h2>🔗 Third-party cookies</h2>
+            <p>We may use third-party services that set their own cookies on our website. These services include:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> Provides analytics data to help us understand user behavior.</li>
+                <li><strong>Social media platforms:</strong> Allow you to share content and connect with us on social media.</li>
+                <li><strong>Advertising partners:</strong> Help us deliver relevant advertisements to you across the web.</li>
+            </ul>
+            <p>We do not control the cookies set by third parties, and we recommend that you review the privacy policies of these third parties for more information about their cookie practices.</p>
+
+            <h2>⏳ Cookie retention</h2>
+            <p>The retention period for cookies varies depending on their purpose:</p>
+            <ul>
+                <li><strong>Session cookies:</strong> These are temporary and expire when you close your browser.</li>
+                <li><strong>Persistent cookies:</strong> These remain on your device for a set period (ranging from days to years) or until you delete them manually.</li>
+            </ul>
+            <p>We use persistent cookies to remember your preferences for future visits, which enhances your experience by reducing the need to re-enter settings. You can delete persistent cookies through your browser settings at any time.</p>
+
+            <h2>📆 Updates to this policy</h2>
+            <p>We may update this Cookie Policy from time to time to reflect changes in our practices, technologies, legal requirements, or other factors. When we do, we will revise the "Last Updated" date at the top of this page. We encourage you to review this page periodically to stay informed about how we use cookies. Your continued use of the Site following the posting of changes constitutes your acceptance of such changes.</p>
+            <p>This Cookie Policy was last updated on <strong>July 26, 2026</strong>.</p>
+
+            <h2>📞 Contact us</h2>
+            <p>If you have any questions or concerns about our use of cookies, please don't hesitate to contact us. We're here to help you understand how we handle your data and to address any privacy concerns you may have.</p>
+            <p><i class="fas fa-map-pin" style="color:#b47d56;"></i> 42 Pawsome Lane, Suite 101, Austin, TX 78701 <br>
+                <i class="fas fa-phone-alt" style="color:#b47d56;"></i> +1 (800) 555‑BUDDY (2839) <br>
+                <i class="fas fa-envelope" style="color:#b47d56;"></i> privacy@buddy.care</p>
+
+            <div style="margin-top: 2.5rem; padding: 1.2rem 1.8rem; background: #f3ede7; border-radius: 60px 12px 60px 12px; border: 1px solid #dccfc2;">
+                <p style="font-size: 1.2rem; margin: 0;"><i class="fas fa-paw" style="color:#b47d56;"></i> We believe in transparency and giving you control over your data. Our cookie policy is designed to respect your privacy while delivering the best experience possible.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer with address and phone -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-address">
+                <div><i class="fas fa-map-pin"></i> 42 Pawsome Lane, Suite 101, Austin, TX 78701</div>
+                <div><i class="fas fa-phone-alt"></i> +1 (800) 555‑BUDDY (2839)</div>
+                <div><i class="fas fa-envelope"></i> hello@buddy.care</div>
+            </div>
+            <div style="font-size: 1.2rem; letter-spacing: 2px;">
+                <i class="fas fa-dog"></i> <i class="fas fa-cat"></i> <i class="fas fa-paw"></i>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <i class="fas fa-copyright"></i> 2026 Buddy · Everyday Pet Care — we value your privacy.
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Dialog Box -->
+    <div id="cookieConsent" class="cookie-consent">
+        <p><i class="fas fa-cookie-bite"></i> We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All", you consent to our use of cookies. You can manage your preferences at any time.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn decline" onclick="declineCookies()">Decline Non-Essential</button>
+            <button class="cookie-btn settings" onclick="openSettings()">Settings</button>
+            <button class="cookie-btn accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+
+    <script>
+        // Check if user has already made a choice
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (consent === 'accepted' || consent === 'declined') {
+                document.getElementById('cookieConsent').classList.add('hidden');
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.add('hidden');
+            // Here you would enable all non-essential cookies
+            console.log('All cookies accepted');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.add('hidden');
+            // Here you would disable non-essential cookies
+            console.log('Non-essential cookies declined');
+        }
+
+        function openSettings() {
+            // Open a settings modal or scroll to the cookie management section
+            // For simplicity, we'll scroll to the cookie management section
+            const settingsSection = document.querySelector('.cookies-content h2:contains("How to manage your cookie preferences")');
+            if (settingsSection) {
+                settingsSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Fallback: scroll to top of content
+                document.querySelector('.cookies-content').scrollIntoView({ behavior: 'smooth' });
+            }
+            // Also show a small notification
+            alert('Please see the "How to manage your cookie preferences" section above for detailed options.');
+        }
+
+        // Allow users to reopen the dialog if they want to change preferences (optional)
+        // You could add a small link in the footer to reset consent
+        // For demonstration, we'll add a hidden function to reset (can be triggered via console)
+        window.resetCookieConsent = function() {
+            localStorage.removeItem('cookieConsent');
+            document.getElementById('cookieConsent').classList.remove('hidden');
+        };
+    </script>
+</body>
+</html>

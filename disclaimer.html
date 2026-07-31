@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer · Buddy Everyday Pet Care</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #fcf9f5;
+      color: #2d2a24;
+      line-height: 1.7;
+    }
+
+    /* ----- navigation (consistent) ----- */
+    .navbar {
+      background: #2d4a3b;
+      padding: 1rem 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #f5e7d9;
+      letter-spacing: 1px;
+    }
+    .logo i {
+      color: #f9c58b;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      color: #f0ebe1;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      transition: 0.25s;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links li a:hover {
+      background: #f9c58b;
+      color: #1f3328;
+      box-shadow: 0 4px 10px rgba(249, 197, 139, 0.4);
+    }
+
+    /* ----- main container ----- */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 2rem 1rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .page-header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #1f3328;
+      letter-spacing: -0.5px;
+    }
+
+    .page-header h1 i {
+      color: #f9c58b;
+      margin: 0 0.25rem;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: #4d4a42;
+      max-width: 720px;
+      margin: 0.5rem auto 0;
+      border-bottom: 3px solid #e7dccc;
+      padding-bottom: 1rem;
+    }
+
+    /* disclaimer content rich */
+    .disclaimer-content {
+      background: #ffffffec;
+      padding: 2.8rem 3rem;
+      border-radius: 60px 20px 60px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      border: 1px solid #ede5da;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .disclaimer-content h2 {
+      font-size: 2.2rem;
+      color: #1f3328;
+      margin: 2.8rem 0 0.8rem;
+      border-left: 12px solid #f9c58b;
+      padding-left: 1.4rem;
+    }
+
+    .disclaimer-content h2:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    .disclaimer-content h3 {
+      font-size: 1.6rem;
+      color: #2d4a3b;
+      margin: 2rem 0 0.6rem;
+      font-weight: 600;
+    }
+
+    .disclaimer-content p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      color: #2f2b24;
+    }
+
+    .disclaimer-content ul, .disclaimer-content ol {
+      margin: 1rem 0 1.8rem 2.2rem;
+    }
+
+    .disclaimer-content li {
+      margin-bottom: 0.7rem;
+      font-size: 1.05rem;
+    }
+
+    .disclaimer-content .highlight {
+      background: #fcf3e9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #3d2e1e;
+    }
+
+    .disclaimer-content .card-note {
+      background: #f6efe7;
+      padding: 1.2rem 2rem;
+      border-radius: 40px 12px 40px 12px;
+      border-left: 8px solid #f9c58b;
+      margin: 1.8rem 0;
+      font-style: italic;
+    }
+
+    .disclaimer-content .card-note i {
+      color: #b47d56;
+      margin-right: 10px;
+    }
+
+    .disclaimer-content .legal-box {
+      background: #f3ede7;
+      padding: 1.5rem 2rem;
+      border-radius: 40px 12px 40px 12px;
+      border: 1px solid #dccfc2;
+      margin: 2rem 0;
+    }
+
+    /* footer (identical) */
+    .footer {
+      background: #1f3328;
+      color: #ede3d6;
+      padding: 2.8rem 2rem 2rem;
+      margin-top: 2rem;
+      border-radius: 60px 60px 0 0;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-address {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-address div i {
+      color: #f9c58b;
+      width: 1.8rem;
+      font-size: 1.4rem;
+    }
+
+    .footer-copy {
+      text-align: right;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      border-top: 1px solid #3f5a49;
+      padding-top: 1.8rem;
+      margin-top: 1.8rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .footer-copy i {
+      color: #f9c58b;
+    }
+
+    @media (max-width: 750px) {
+      .navbar { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+      .nav-links { justify-content: center; width: 100%; gap: 0.2rem 0.5rem; }
+      .nav-links li a { font-size: 0.8rem; padding: 0.3rem 0.6rem; }
+      .page-header h1 { font-size: 2.5rem; }
+      .disclaimer-content { padding: 1.8rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-address { flex-direction: column; gap: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- navigation -->
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-paw"></i> Buddy</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="disclaimer.html">Disclaimer</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="cookies.html">Cookies</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1><i class="fas fa-triangle-exclamation"></i> Disclaimer <i class="fas fa-paw"></i></h1>
+      <p>Important legal information · Please read carefully</p>
+    </div>
+
+    <div class="disclaimer-content">
+      <h2>⚖️ General disclaimer</h2>
+      <p>The information provided by Buddy (“we”, “us”, or “our”) on this website and through our services is for general informational purposes only. All information on the Site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Site. UNDER NO CIRCUMSTANCE SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF THE SITE OR RELIANCE ON ANY INFORMATION PROVIDED ON THE SITE. YOUR USE OF THE SITE AND YOUR RELIANCE ON ANY INFORMATION ON THE SITE IS SOLELY AT YOUR OWN RISK.</p>
+      <p>This disclaimer applies to all content, including but not limited to text, images, videos, graphics, and any other materials. We strongly recommend that you consult with a qualified professional for specific advice tailored to your situation. The content on Buddy is not a substitute for professional veterinary advice, diagnosis, or treatment. Always seek the advice of your veterinarian or other qualified health provider with any questions you may have regarding a medical condition or the health and welfare of your pet.</p>
+
+      <h2>🐾 No veterinary advice</h2>
+      <p>The content on this website is for educational and informational purposes only and is not intended as medical advice. The information provided does not replace the relationship that exists between you and your veterinarian. We do not practice veterinary medicine, nor do we claim to be a veterinary professional. Any information provided by Buddy is not a substitute for professional veterinary care. If you suspect your pet has a health problem, or if you have any concerns about your pet's health, you should contact your veterinarian immediately. In case of an emergency, take your pet to a veterinary clinic or animal hospital without delay.</p>
+      <p>We make every effort to ensure that the information presented is accurate and up-to-date, but we cannot guarantee that all information is current or complete. Veterinary medicine is constantly evolving, and new research may change previous understandings. Therefore, we encourage you to verify any information with a qualified veterinarian and to use your own judgment when applying any suggestions from this site.</p>
+      <div class="card-note"><i class="fas fa-notes-medical"></i> This site does not provide medical diagnoses or treatment plans. Always consult your veterinarian for professional advice.</div>
+
+      <h2>📝 Accuracy of content</h2>
+      <p>We strive to ensure that all content published on Buddy is accurate, reliable, and up-to-date. However, we cannot guarantee that the information is always error-free, complete, or current. We may update, modify, or remove content at any time without prior notice. We do not warrant that the content will meet your expectations or that any errors will be corrected. We assume no responsibility for any errors or omissions in the content, nor for any loss or damage arising from the use of the information provided.</p>
+      <p>We also do not guarantee that our website will be available at all times or that it will be free from viruses or other harmful components. You are responsible for implementing sufficient procedures and checkpoints to satisfy your particular requirements for anti-virus protection and accuracy of data input and output. We are not responsible for any technical issues that may arise from your use of the site.</p>
+
+      <h2>🔗 External links disclaimer</h2>
+      <p>Our website may contain links to external websites that are not provided or maintained by us. We do not control, endorse, or assume responsibility for the content, privacy policies, or practices of any third-party websites. We do not warrant the accuracy, completeness, or usefulness of any information on these external sites. The inclusion of any link does not imply endorsement by us of the site or any association with its operators. You acknowledge and agree that we are not responsible for the availability of such external sites or resources, and we are not liable for any damage or loss caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such sites or resources.</p>
+      <p>We encourage you to review the terms and conditions and privacy policies of any third-party sites that you visit. We are not affiliated with these external sites and have no control over their content or practices. Your interactions with these sites are solely between you and the third party.</p>
+
+      <h2>💼 Professional services disclaimer</h2>
+      <p>Buddy does not offer professional services such as legal, financial, or veterinary advice. The information provided on this site is of a general nature and should not be construed as professional advice. You should not act or refrain from acting based on any information provided on this site without first obtaining professional advice tailored to your specific situation. We disclaim all liability for actions taken or not taken based on the content of this site.</p>
+      <p>If you need professional advice, please consult a qualified professional in the relevant field. For legal matters, consult an attorney. For financial matters, consult a financial advisor. For pet health matters, consult a veterinarian. We are not responsible for any decisions you make based on the information provided on this site.</p>
+
+      <h2>📈 Testimonials and user submissions</h2>
+      <p>Testimonials and user submissions featured on our website are individual experiences and represent the subjective opinions of those users. They do not represent typical results and are not intended to guarantee that you will achieve the same results. The testimonials and submissions are not endorsed by us, and we do not claim that they are representative of all users. We do not verify the accuracy of any user-submitted content and are not responsible for any claims made in such content.</p>
+      <p>By submitting content to our site (including testimonials, comments, photos, or other materials), you grant us a non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media. You represent and warrant that you own or otherwise control all of the rights to the content that you submit, and that the content is accurate, not misleading, and does not violate any law or the rights of any third party.</p>
+
+      <h2>🛡️ Limitation of liability</h2>
+      <p>To the fullest extent permitted by applicable law, in no event shall Buddy, its affiliates, directors, employees, agents, or licensors be liable to you for any direct, indirect, incidental, special, punitive, or consequential damages whatsoever, including but not limited to damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or in connection with your use of the site or the content, whether based on warranty, contract, tort (including negligence), or any other legal theory, even if we have been advised of the possibility of such damages.</p>
+      <p>If you are dissatisfied with any portion of the site or with these terms and conditions, your sole and exclusive remedy is to discontinue using the site. Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, so the above limitations may not apply to you.</p>
+      <div class="legal-box">
+        <p><i class="fas fa-gavel" style="color:#b47d56;"></i> <strong>Governing law:</strong> This disclaimer and your use of the site shall be governed by and construed in accordance with the laws of the State of Texas, without regard to its conflict of law provisions. Any legal action arising out of or relating to this disclaimer or your use of the site shall be brought exclusively in the federal or state courts located in Travis County, Texas.</p>
+      </div>
+
+      <h2>📆 Updates to this disclaimer</h2>
+      <p>We reserve the right to update or change this disclaimer at any time without prior notice. Any changes will be effective immediately upon posting the updated disclaimer on this page. We encourage you to review this disclaimer periodically to stay informed of any changes. Your continued use of the site after any modifications to the disclaimer constitutes your acceptance of the updated terms.</p>
+      <p>This disclaimer was last updated on <strong>July 26, 2026</strong>.</p>
+
+      <h2>📌 No warranty</h2>
+      <p>The site and all content, products, and services provided on or through the site are provided on an "as is" and "as available" basis, without warranties of any kind, either express or implied. We disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, and title. We do not warrant that the site will be uninterrupted, secure, or free from errors, viruses, or other harmful components.</p>
+      <p>We do not warrant or make any representations regarding the use or the results of the use of the site in terms of correctness, accuracy, reliability, or otherwise. You assume the entire cost of all necessary servicing, repair, or correction. We make no warranty that the site or any content will meet your requirements or that the site will be available at any particular time or location.</p>
+
+      <h2>🧑‍⚖️ Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless Buddy, its affiliates, officers, directors, employees, agents, and licensors from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees (including reasonable attorneys' fees) that arise from or relate to your use of the site, your violation of this disclaimer, or your violation of any rights of another party. We reserve the right, at our own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you, in which event you will cooperate with us in asserting any available defenses.</p>
+
+      <h2>✉️ Contact us</h2>
+      <p>If you have any questions or concerns about this disclaimer, please contact us using the information below. We are committed to addressing any inquiries you may have regarding our policies and practices.</p>
+      <p><i class="fas fa-map-pin" style="color:#b47d56;"></i> 42 Pawsome Lane, Suite 101, Austin, TX 78701 <br>
+      <i class="fas fa-phone-alt" style="color:#b47d56;"></i> +1 (800) 555‑BUDDY (2839) <br>
+      <i class="fas fa-envelope" style="color:#b47d56;"></i> legal@buddy.care</p>
+
+      <h2>📋 Additional disclaimers</h2>
+      <p><strong>Health and safety:</strong> The tips and suggestions provided on Buddy are intended to promote the well-being of your pets. However, every pet is unique, and what works for one may not work for another. Always monitor your pet's response to any new diet, exercise, or activity. If you notice any adverse reactions, discontinue immediately and consult your veterinarian.</p>
+      <p><strong>Product recommendations:</strong> We may recommend products or services from third parties. These recommendations are based on our research and experience, but we do not guarantee the quality, effectiveness, or safety of any third-party products. You should carefully read product labels, instructions, and warnings before using any product. We are not responsible for any issues arising from the use of third-party products.</p>
+      <p><strong>Training and behavior:</strong> Our training and behavior tips are general guidelines and may not be suitable for all pets. For specific behavioral issues, we recommend consulting a certified animal behaviorist or professional trainer. We are not responsible for any injuries or damages that may occur as a result of implementing training techniques suggested on our site.</p>
+      <p><strong>Nutrition:</strong> Nutritional information provided on Buddy is for educational purposes only and should not replace professional dietary advice. Always consult your veterinarian before making significant changes to your pet's diet. Individual pets may have specific dietary needs or allergies that require professional evaluation.</p>
+
+      <h2>📌 Acknowledgment</h2>
+      <p>By using this website, you acknowledge that you have read, understood, and agree to be bound by this disclaimer. If you do not agree with any part of this disclaimer, you are not authorized to use the site. We reserve the right to modify this disclaimer at any time, and your continued use of the site after such modifications constitutes your acceptance of the updated terms.</p>
+      <p>We value transparency and trust. This disclaimer is designed to protect both you and us, ensuring a clear understanding of the limitations and responsibilities associated with the use of our content. Thank you for being a part of the Buddy community, and we hope that our resources help you and your furry, feathered, or scaly friends live happier, healthier lives together.</p>
+
+      <div style="margin-top: 2.5rem; padding: 1.2rem 1.8rem; background: #f3ede7; border-radius: 60px 12px 60px 12px; border: 1px solid #dccfc2;">
+        <p style="font-size: 1.2rem; margin: 0;"><i class="fas fa-paw" style="color:#b47d56;"></i> Buddy is here to support you — but always trust your veterinarian for professional medical decisions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer with address and phone -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-address">
+        <div><i class="fas fa-map-pin"></i> 42 Pawsome Lane, Suite 101, Austin, TX 78701</div>
+        <div><i class="fas fa-phone-alt"></i> +1 (800) 555‑BUDDY (2839)</div>
+        <div><i class="fas fa-envelope"></i> hello@buddy.care</div>
+      </div>
+      <div style="font-size: 1.2rem; letter-spacing: 2px;">
+        <i class="fas fa-dog"></i> <i class="fas fa-cat"></i> <i class="fas fa-paw"></i>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <i class="fas fa-copyright"></i> 2026 Buddy · Everyday Pet Care — read our disclaimer carefully.
+    </div>
+  </footer>
+</body>
+</html>
